@@ -156,3 +156,15 @@ api/posts/index.js
 > 현재 요청의 메서드, 경로, 파라미터
 
 api라우트에 posts라우트 연결
+
+
+- koa-bodyparser미들웨어 적용
+```
+yarn add koa-bodyparser
+```
+
+함수 이렇게 내보냈다!
+> exprots.이름 =
+이렇게 받는다!
+> const 모듈이름 = require('파일이름')
+> 모듈이름.이름();
