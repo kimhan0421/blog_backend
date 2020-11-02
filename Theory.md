@@ -4,12 +4,12 @@ js엔진을 기반으로 웹 브라우저 뿐만 아니라 서버에서도 js사
 
 - koa
 
-웹 서버 구축 시, 웹 프레임 워크   
+웹 서버 구축 시, 웹 프레임 워크  
 미들웨어 기능만. 나머지는 다른 라이브러리 적용하여 사용 ⇒ Express보다 가벼움
 
 - node version확인
 - 마지막 프로젝트이 블로그 서비스와 연동할 서버이기 때문에 blog디렉터리 만들고,
-내부에 blog-backend디렉터리 생성.
+  내부에 blog-backend디렉터리 생성.
 - yarn init -y로 패키지 정보를 생성
   ⇒ package.json파일 생성
 
@@ -27,9 +27,11 @@ js엔진을 기반으로 웹 브라우저 뿐만 아니라 서버에서도 js사
   ✔ What format do you want your config file to be in? · JSON
   The config that you've selected requires the following dependencies:
 ```
-  ⇒ .eslintrc.json 파일 생성됨
+
+⇒ .eslintrc.json 파일 생성됨
 
 - .prettierc파일 생성
+
 ```javascript
   {
   "singleQuote": true,
@@ -40,4 +42,31 @@ js엔진을 기반으로 웹 브라우저 뿐만 아니라 서버에서도 js사
   "printWidth": 80
   }
 ```
+
+prettier적용
+
+```javascript
+yarn add eslint-config-prettier
+
+```
+
+설치 후, .exlintrc.json 생성
+
 - src 파일 임의로 생성
+  => index.js
+  서버 포트 4000번으로 열기
+
+```javascript
+const Koa = require('koa');
+const app = new Koa();
+
+app.use((ctx) => (ctx.body = 'hello world'));
+app.listen(4000, () => {
+  console.log('Listening to port 4000');
+});
+```
+-> node src 
+
+koa => 미들웨어의 배열로 구성.
+app.use => 미들웨어 함수를 애플리케이션에 등록
+
