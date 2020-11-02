@@ -88,3 +88,45 @@ koa ) 정식으로 지원함
 
 ## 21.4 nodemon
 
+서버 코드 변경시 서버 재시작 번거로워요.
+```
+yarn add --dev nodemon
+```
+=> nodemon도구를 사용해서,   
+코드 변경할 때마다 서버 자동 재시작
+
+package.json
+```javascript
+"scripts":{
+  "start": "node src", //서버 시작
+  "start:dev": "nodemon --watch src/ src/index.js"//nodemone을 통해 서버를 실행해주는 명령어
+}
+```
+nodemon은 src디렉터리 주시. 
+내부의 어떤 파일이 변경되면 이를 감지하여 src/index.js 파일 재시작!
+재시작 필요 없다면,
+> yarn start
+재시작 필요하면
+> yarn start:dev
+
+## 21.5 koa-router사용
+koa에서도 다른 주소로 요청이 들어올 경우 다른 작업을 처리할 수 있도록 라우터를 사용해야 함.
+koa-router모듈 설치
+```
+yarn add koa-router
+```
+
+- 라우터 설정
+```javascript
+router.get('/', (ctx) => {
+  ctx.body = '홈';
+});
+router.get('/about', (ctx) => {
+  ctx.body = '소개';
+});
+```
+첫번째 파라메타 => 라우트 경로
+두번째 파라메타 => 해당 라우트에 적용할 미들웨어 함수
+
+get => 해당 라우트에서 사용할 HTTP메서드 의미
+ex)post, put, delete
