@@ -121,8 +121,9 @@ yarn add koa-router
 router.get('/', (ctx) => {
   ctx.body = '홈';
 });
-router.get('/about', (ctx) => {
-  ctx.body = '소개';
+router.get('/about/:name?', (ctx) => {
+  const {name}=ctx.params;
+  ctx.body = name ?`${name}의 소개`:'소개';
 });
 ```
 첫번째 파라메타 => 라우트 경로
@@ -130,3 +131,28 @@ router.get('/about', (ctx) => {
 
 get => 해당 라우트에서 사용할 HTTP메서드 의미
 ex)post, put, delete
+
+- 라우트 파라미터, 쿼리
+> ctx.params 객체에서 조회
+파라미터 사용시, 콜론(:)사용
+쿼리, 물음표(?)사용
+
+파라미터 => 처리할 작업의 카테고리 받아오거나 고유ID 혹은 이름으로 <strong>특정 데이터</strong>를 조회할 때 사용
+쿼리 => <strong>옵션</strong>에 관련된 정보 받아옴
+
+- Reat Api
+클라이언트: 서버에 자신이 데이터를 조회, 생성, 삭제, 업데이트 하겠다!
+서버: 필요한 로직에 따라 데이터베이스에 접근해 작업 처리
+> get : 데이터 조회 
+> post : 데이터 등록, 인증작업 거칠때
+> delete: : 데이터 지울때
+> put: 새 정보로 통째로 교체 할때
+> patch: 특정 필드 수정
+
+## 21.5.5 posts라우트 생성
+api/posts/index.js
+=> 여러종류의 라우트 설정 후 printInfo함수 호출
+문자열이 아닌 JSON객체를 반환하도록 설정, 
+> 현재 요청의 메서드, 경로, 파라미터
+
+api라우트에 posts라우트 연결
