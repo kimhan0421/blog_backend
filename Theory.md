@@ -1,4 +1,4 @@
-Node.js
+## Node.js
 
 js엔진을 기반으로 웹 브라우저 뿐만 아니라 서버에서도 js사용할 수 있는 런타임 개발 ⇒ Node.js
 
@@ -30,7 +30,7 @@ js엔진을 기반으로 웹 브라우저 뿐만 아니라 서버에서도 js사
 
 ⇒ .eslintrc.json 파일 생성됨
 
-- .prettierc파일 생성
+### .prettierc파일 생성
 
 ```javascript
   {
@@ -67,10 +67,24 @@ app.listen(4000, () => {
 ```
 -> node src 
 
-fdxfdfdffdxdfxfdxdf
-
-frsfsdfsesfgesre
 koa => 미들웨어의 배열로 구성.
 app.use => 미들웨어 함수를 애플리케이션에 등록
 
-크라켄을 이용해보아요.
+- 쿼리 이용
+```javascript
+app.use((ctx, next) => {
+  console.log(ctx.url);
+  console.log(1);
+  if (ctx.query.authorized !== '1') {
+    ctx.status = 401;
+    return; //authorized=1이라는 쿼리 파라미터가 포함되어 있으면 이후 미들웨어 처리
+  }
+  next();
+});
+```
+
+- async/await 사용
+koa ) 정식으로 지원함
+
+## 21.4 nodemon
+
