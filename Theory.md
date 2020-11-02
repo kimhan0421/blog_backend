@@ -67,7 +67,10 @@ app.listen(4000, () => {
 ```
 -> node src 
 
+fdxfdfdffdxdfxfdxdf
+
+frsfsdfsesfgesre
 koa => 미들웨어의 배열로 구성.
 app.use => 미들웨어 함수를 애플리케이션에 등록
 
-크라켄을 이용해보아요
+크라켄을 이용해보아요.
