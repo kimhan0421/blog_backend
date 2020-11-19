@@ -182,3 +182,5 @@ yarn add koa-bodyparser
 > 이렇게 받는다!
 > const 모듈이름 = require('파일이름')
 > 모듈이름.이름();
+
+## Mongoose 이용한 MongoDB
